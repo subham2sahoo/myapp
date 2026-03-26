@@ -1,0 +1,23 @@
+<mvc:View controllerName="myapp.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="My Tasks">
+        <headerContent>
+            <Button icon="sap-icon://add" text="Add Task" press="onAddTask" type="Emphasized" />
+        </headerContent>
+        <subHeader>
+            <Toolbar>
+                <Input id="taskInput" placeholder="Enter a new task..." width="100%" submit="onAddTask" />
+            </Toolbar>
+        </subHeader>
+        <List id="taskList" noDataText="No tasks yet. Add one above!" mode="Delete" delete="onDeleteTask">
+            <CustomListItem>
+                <HBox alignItems="Center" class="sapUiSmallMargin">
+                    <CheckBox selected="{done}" select="onToggleDone" />
+                    <Text text="{title}" class="{= ${done} ? 'taskDone' : '' } sapUiSmallMarginBegin" />
+                </HBox>
+            </CustomListItem>
+        </List>
+    </Page>
+</mvc:View>
